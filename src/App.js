@@ -16,11 +16,12 @@ function App() {
       const response = await fetch(`https://calculator-backend-six.vercel.app/add`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify({ number1: number1, number2: number2 }),
+        body: `number1=${number1}&number2=${number2}`,
       });
       const data = await response.json();
+      console.log(data.result);
       setResult(data.result);
     } catch (error) {
       console.error('Error:', error);
@@ -34,9 +35,9 @@ function App() {
       const response = await fetch(`https://calculator-backend-six.vercel.app/subtract`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify({ number1: number1, number2: number2 }),
+        body: `number1=${number1}&number2=${number2}`,
       });
       const data = await response.json();
       setResult(data.result);
