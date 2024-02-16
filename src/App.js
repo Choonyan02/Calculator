@@ -9,18 +9,40 @@ function App() {
   const [number2, setNumber2] = useState(0);
   const [result, setResult] = useState(null);
 
-  const handleAdd = () => {
+  const handleAdd = async () => {
     setNumber1(number1 ? number1 : 0);
     setNumber2(number2 ? number2 : 0);
-    const sum = Number(number1) + Number(number2);
-    setResult(sum);
+    try {
+      const response = await fetch('http://localhost:3000/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ number1: number1, number2: number2 }),
+      });
+      const data = await response.json();
+      setResult(data.result);
+    } catch (error) {
+      console.error('Error:', error);
+    }
   }
 
-  const handleSubstract = () => {
+  const handleSubstract = async () => {
     setNumber1(number1 ? number1 : 0);
     setNumber2(number2 ? number2 : 0);
-    const difference = number1 - number2;
-    setResult(difference);
+    try {
+      const response = await fetch('http://localhost:3000/subtract', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ number1: number1, number2: number2 }),
+      });
+      const data = await response.json();
+      setResult(data.result);
+    } catch (error) {
+      console.error('Error:', error);
+    }
   }
 
   return (
