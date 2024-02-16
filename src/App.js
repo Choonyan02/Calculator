@@ -13,7 +13,7 @@ function App() {
     setNumber1(number1 ? number1 : 0);
     setNumber2(number2 ? number2 : 0);
     try {
-      const response = await fetch('http://localhost:3000/add', {
+      const response = await fetch(`https://calculator-backend-six.vercel.app/add`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ function App() {
     setNumber1(number1 ? number1 : 0);
     setNumber2(number2 ? number2 : 0);
     try {
-      const response = await fetch('http://localhost:3000/subtract', {
+      const response = await fetch(`https://calculator-backend-six.vercel.app/subtract`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
