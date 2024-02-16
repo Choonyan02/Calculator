@@ -1,9 +1,10 @@
 import React from 'react';
+import './componentStyle.css'
 
 function InputField({ label, number, setNumber }) {
 
   return (
-    <div>
+    <div className='input-field'>
       <label>{label}</label>
       <input 
         type="number" 

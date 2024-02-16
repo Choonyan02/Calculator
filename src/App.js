@@ -47,12 +47,14 @@ function App() {
   }
 
   return (
-    <div>
+    <div className='main-div'>
       <InputField label="Number 1" number={number1} setNumber={setNumber1} />
       <InputField label="Number 2" number={number2} setNumber={setNumber2}/>
-      <ActionButton type="add" handleClick={handleAdd}/>
-      <ActionButton type="subtract" handleClick={handleSubstract}/>
-      <ResultDisplay result={result === null ? "Start computation here" : result} />
+      <div className='button-container'>
+        <ActionButton type="add" handleClick={handleAdd}/>
+        <ActionButton type="subtract" handleClick={handleSubstract}/>
+      </div>
+      <ResultDisplay result={result === null ? "Result goes here" : result} />
     </div>
   );
 }
